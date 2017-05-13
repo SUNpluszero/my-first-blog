@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post, Comment
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, UserForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 def post_list(request):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -87,3 +88,23 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
+
+def register(request):
+	if request.method == 'POST':
+		form = UserForm(request.POST)
+		print(form)
+		if form.is_valid():
+			form_data = form.cleaned_data
+			user = User.objects.create_user(
+				username=form_data['username'],
+				password=form_data['password'], 
+				email=form_data['email']
+			)
+			user.save()
+			return redirect('post_list')
+		else:
+			return redirect('register')
+	else:
+		form = UserForm()
+		return render(request, 'registration/register.html', {'form': form })
+
