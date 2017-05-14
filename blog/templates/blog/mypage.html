@@ -1,9 +1,9 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h1>New Page</h1>
-
+    <h1 class="middle title">MY PAGE</h1>
 		<div class="mypage">
 			<p>NAME:{{ userinfo.username }}</p>
+			<p>EMAIL:{{ userinfo.email }}</p>
         </div>
 {% endblock %}

@@ -1,20 +1,17 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    
-
-    <form method="post" action="{% url 'login' %}">
+    <h1 class="middletitle">LOG IN</h1>
+    <br/>
+    <form class = "login-or-register" method="post" action="{% url 'login' %}">
     {% csrf_token %}
-        <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-        </table>
+
+        <p class = "smalllabel">UserName :
+            {{ form.username }}
+        </p>
+        <p class = "smalllabel">PassWord : 
+            {{ form.password }}
+        </p>        
         <a class="login_button">
             <button type="submit" class="save btn btn-default">Login</button>
         </a>

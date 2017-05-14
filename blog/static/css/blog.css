@@ -14,7 +14,7 @@
 
 .content {
     margin-top: 80px;
-    margin-left: 80px;
+    margin-left:80px;
 }
 
 h1 , h2, h3, h4{
@@ -45,13 +45,13 @@ h1 , h2, h3, h4{
     margin-bottom: 70px;
 }
 
-.post h1 a, .post h1 a:visited {
+.post h1 a, .post h1 a:visited, .middletitle {
     color: #3C7896;
 }
 .comment {
     margin: 20px 0px 20px 20px;
 }
-.login_button{
+.login_button, .register_button {
     font-family: 'Baloo';
     
 }
@@ -62,51 +62,24 @@ h1 , h2, h3, h4{
     margin-left: 20px;
 }
 
-
-
-/* Tooltip container */
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+.smalllabel {
+    font-family: 'Baloo';
+    color: #000000;
+    font-size: 12pt;
 }
 
-/* Tooltip text */
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-    /* Position the tooltip text */
-    position: absolute;
-    z-index: 100;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-
-    /* Fade in tooltip */
-    opacity: 0;
-    transition: opacity 1s;
+.smalllabel_wrong {
+    font-family: 'Baloo';
+    color: #FF0000;
+    font-size: 12pt;
 }
 
-/* Tooltip arrow */
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
+.login-or-register {
+    overflow: hidden;
+    width: 55%;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-} 
+input {
+    float: right;
+    clear: both;
+}

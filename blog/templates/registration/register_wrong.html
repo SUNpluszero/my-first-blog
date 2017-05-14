@@ -1,27 +1,25 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    <form method="post" action="{% url 'register' %}">{% csrf_token %}
-            <h1>Error! Wrong Input</h1>
-            <h2>Try Again</h2>
-        <table>
-            <tr>
-                <td>{{ form.username.label_tag }}</td>
-                <td>{{ form.username }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.email.label_tag }}</td>
-                <td>{{ form.email }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.password.label_tag }}</td>
-                <td>{{ form.password }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.password_check.label_tag }}</td>
-                <td>{{ form.password_check }}</td>
-            </tr>
-        </table>
+    <h1 class="middletitle">REGISTER</h1>
+    <br/>
+    <form class = "login-or-register" method="post" action="{% url 'register' %}">{% csrf_token %}
+            <h1><font color="red">Error! Wrong Input</font></h1>
+            <h2><font color="red">Try Again</font></h2>
+            <br/>
+        <p class = "smalllabel_wrong">UserName :
+            {{ form.username }}
+        </p>
+        <p class = "smalllabel_wrong">E - Mail : 
+            {{ form.email }}
+        </p>  
+        <p class = "smalllabel_wrong">PassWord : 
+            {{ form.password }}
+        </p>  
+        <p class = "smalllabel_wrong">PassWord(AGAIN) : 
+            {{ form.password_check }}
+        </p>  
+
         <button type="submit" class="save btn btn-default">REGISTER
         </button>
         <input type="hidden" name="next" value="{{ next }}" />

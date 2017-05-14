@@ -1,27 +1,25 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    <form method="post" action="{% url 'register' %}">{% csrf_token %}
-        <table>
-            <tr>
-                <td>{{ form.username.label_tag }}</td>
-                <td>{{ form.username }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.email.label_tag }}</td>
-                <td>{{ form.email }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.password.label_tag }}</td>
-                <td>{{ form.password }}</td>
-            </tr>
+    <h1 class="middletitle">REGISTER</h1>
+    <br/>
+    <form class = "login-or-register" method="post" action="{% url 'register' %}">{% csrf_token %}
 
-            <tr>
-                <td>{{ form.password_check.label_tag }}</td>
-                <td>{{ form.password_check }}</td>
-            </tr>
-        </table>
-        <button type="submit" class="save btn btn-default">REGISTER
+        <p class = "smalllabel">
+                UserName :
+            {{ form.username }}
+        </p>
+        <p class = "smalllabel">E - Mail : 
+            {{ form.email }}
+        </p>  
+        <p class = "smalllabel">PassWord : 
+            {{ form.password }}
+        </p>  
+        <p class = "smalllabel">PassWord(AGAIN) : 
+            {{ form.password_check }}
+        </p>  
+
+        <button type="submit" class="save btn btn-default register_button">REGISTER
         </button>
         <input type="hidden" name="next" value="{{ next }}" />
     </form>
