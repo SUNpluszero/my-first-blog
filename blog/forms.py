@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Post, Comment
+from .models import Post, Comment, Document
 
 
 class PostForm(forms.ModelForm):
@@ -27,3 +27,8 @@ class UserForm(forms.Form):
 	def is_valid(self):
 		valid = super(UserForm, self).is_valid()
 		return valid and self.cleaned_data['password'] == self.cleaned_data['password_check']
+
+class DocumentForm(forms.ModelForm):
+	class Meta:
+		model = Document
+		fields = ('description', 'document',);

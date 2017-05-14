@@ -2,6 +2,8 @@
 
 {% block content %}
     <form method="post" action="{% url 'register' %}">{% csrf_token %}
+            <h1>Error! Wrong Input</h1>
+            <h2>Try Again</h2>
         <table>
         <tr>
             <td>{{ form.username.label_tag }}</td>
@@ -15,7 +17,6 @@
             <td>{{ form.password.label_tag }}</td>
             <td>{{ form.password }}</td>
         </tr>
-
         <tr>
             <td>{{ form.password_check.label_tag }}</td>
             <td>{{ form.password_check }}</td>

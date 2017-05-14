@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Post, Comment
-from .forms import PostForm, CommentForm, UserForm
+from .models import Post, Comment, Document
+from .forms import PostForm, CommentForm, UserForm, DocumentForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -101,10 +101,22 @@ def register(request):
 				email=form_data['email']
 			)
 			user.save()
-			return redirect('post_list')
+			return render(request,'blog/congrat_register.html')
 		else:
-			return redirect('register')
+			form = UserForm()
+			return render(request, 'registration/register_wrong.html', {'form': form })
 	else:
 		form = UserForm()
 		return render(request, 'registration/register.html', {'form': form })
+
+def model_form_upload(request):
+	if request.method == 'POST':
+		form = DocumentForm(request.POST, request.FILES)
+		if form.is_valid():
+			form.save()
+			return redirect('post_list')
+	else:
+		form = DocumentForm()
+	return render(request, 'blog/model_form_upload.html',{'form':form})
+
 

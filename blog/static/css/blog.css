@@ -52,6 +52,12 @@ h1 , h2, h3, h4{
     margin: 20px 0px 20px 20px;
 }
 .login_button{
-    font-family: 'Baloo'
+    font-family: 'Baloo';
     
+}
+.postauthor {
+    font-family: 'Baloo';
+    color: #A3D6F0;
+    font-size: 12pt;
+    margin-left: 20px;
 }
