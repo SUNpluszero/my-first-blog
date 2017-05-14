@@ -23,6 +23,12 @@
 
     {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
-        <p>Need To Register?  ->  <a href="{% url 'register' %}" ><span class="glyphicon glyphicon-plus-sign"></span></a></p>
+        <p> 
+            <a href="{% url 'register' %}" >
+                <button type= "button" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-plus-sign"></span> Not Register Yet?
+                </button>
+            </a>
+        </p>
     {% endif %}
 {% endblock %}

@@ -14,4 +14,5 @@ urlpatterns = [
 	url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
 	url(r'^accounts/register/$', views.register, name='register'),
 	url(r'^post/upload/$', views.model_form_upload, name='fileupload'),
+	url(r'^mypage/$', views.mypage, name='mypage'),
 ]

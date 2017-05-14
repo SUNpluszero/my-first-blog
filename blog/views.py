@@ -64,6 +64,7 @@ def post_remove(request, pk):
 	post.delete()
 	return redirect('post_list')
 
+
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -71,11 +72,19 @@ def add_comment_to_post(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            if request.user.is_authenticated():
+            	comment.author = request.user.username
+            else:
+            	comment.author = "Anonymous"
             comment.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
-    return render(request, 'blog/add_comment_to_post.html', {'form': form})
+        if request.user.is_authenticated():
+            author = request.user.username
+        else:
+        	author = "Anonymous"
+    return render(request, 'blog/add_comment_to_post.html', {'form': form, 'name' : author} )
 
 @login_required
 def comment_approve(request, pk):
@@ -119,4 +128,7 @@ def model_form_upload(request):
 		form = DocumentForm()
 	return render(request, 'blog/model_form_upload.html',{'form':form})
 
-
+@login_required
+def mypage(request):
+	userinfo = request.user
+	return render(request,'blog/mypage.html', {'userinfo' : userinfo})
