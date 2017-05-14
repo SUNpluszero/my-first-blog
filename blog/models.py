@@ -35,6 +35,7 @@ class Comment(models.Model):
         return self.text
 
 class Document(models.Model):
+	post = models.ForeignKey('blog.Post', related_name="documents", null=True)
 	description = models.CharField(max_length=255, blank = True)
 	document = models.FileField(upload_to='documents/')
 	uploaded_at = models.DateTimeField(auto_now_add=True)

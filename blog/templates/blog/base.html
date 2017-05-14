@@ -15,15 +15,14 @@
 			    		<a href="{% url 'post_new' %}" class="top-menu" data-toggle="tooltip" data-placement="bottom" title="Write Post">
 			    			<span class="glyphicon glyphicon-plus"></span>
 			    		</a>
+
 			    		<a href="{% url 'post_draft_list' %}" class="top-menu" data-toggle="tooltip" data-placement="bottom" title="Draft List">
 			    			<span class="glyphicon glyphicon-edit"></span>
 			    		</a>
 
-
 						<a href="{% url 'fileupload' %}" class="top-menu" data-toggle="tooltip" data-placement="bottom" title="File Upload">
 			    			<span class="glyphicon glyphicon-upload"></span>
 			    		</a>
-
 
 						<p class = "top-menu">Hello,  
 							<a href="{% url 'logout' %}" class = "top-menu" data-toggle="tooltip" data-placement="bottom" title="Log Out">
@@ -31,10 +30,8 @@
 			    			</a>
 				    		<a href="{% url 'mypage' %}" class="top-menu">{{ user.username }}
 				    		</a>
-				    		
 				    	</p>
 
-			    		
 			    	{% else %}
 			            <a href="{% url 'login' %}" class="top-menu" data-toggle="tooltip" data-placement="bottom" title="Log In">
 		            		<span class="glyphicon glyphicon-log-in ">
@@ -44,9 +41,11 @@
 			            <a href="{% url 'register' %}" class="top-menu" data-toggle="tooltip" data-placement="bottom" title="Register">
 				            <span class="glyphicon glyphicon-plus-sign"></span> 
 			            </a>
+
 			        {% endif %}
 			        <h1><a href="/">The 24th's Blog Project</a></h1>
 			    </div>
+
 			    <div class="content container">
 			        <div class="row">
 			            <div class="col-md-8">
@@ -55,5 +54,6 @@
 			            </div>
 			        </div>
 			    </div>
+			    
 			</body>
     </html>
